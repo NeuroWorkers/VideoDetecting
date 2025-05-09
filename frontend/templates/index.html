@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <title>Video Upload</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Загрузите ваше видео</h1>
+        <div class="file-upload">
+            <input type="file" id="fileInput" name="file" accept="video/*" style="display: none;">
+            <button type="button" id="uploadButton">+</button>
+        </div>
+        <video id="videoPlayer" width="300" controls style="display:none;"></video>
+        <input type="text" id="responseText" placeholder="После загрузки видео начнется обработка" readonly>
+    </div>
+
+    <script src="{{ url_for('static', filename='scripts.js') }}" defer></script>
+</body>
+</html>
