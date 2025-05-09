@@ -1,7 +1,7 @@
 from flask import Flask, request, jsonify, render_template
 from configs.backend_config import ANALYZE_SOURCE_PATH, ANALYZE_TRANSLATED_CENTERS_PATH, ANALYZE_CENTERS_PATH, ANALYZE_POSES_PATH
 from configs.server_config import SERVER_DEBUG_MODE, SERVER_PORT, SERVER_HOST
-from utils.struct_util import delete_file, rename_file_without_extension
+from utils.struct_util import delete_file, rename_file_without_extension, create_dir_with_parents
 from backend.analyze_user_video import predict_pose
 import os
 
@@ -47,6 +47,11 @@ def allowed_file(filename):
 
 
 def process_video(filepath):
+    create_dir_with_parents(ANALYZE_POSES_PATH)
+    create_dir_with_parents(ANALYZE_CENTERS_PATH)
+    create_dir_with_parents(ANALYZE_TRANSLATED_CENTERS_PATH)
+    create_dir_with_parents(ANALYZE_SOURCE_PATH)
+
     new_path = rename_file_without_extension(filepath, "1")
     class_index = predict_pose(new_path)
 
