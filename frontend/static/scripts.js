@@ -15,6 +15,13 @@ document.getElementById('fileInput').addEventListener('change', function(event) 
         videoPlayer.style.display = 'block';
         videoPlayer.play(); // Автоматически начинаем воспроизведение (по желанию)
 
+        const button = document.getElementById('uploadButton')
+        button.style.marginTop = '5px';
+        button.style.marginBottom = '5px';
+
+        const container = document.getElementById('videoContainer')
+        container.style.height = '95%';
+
         // Создаем FormData и отправляем файл на сервер
         const formData = new FormData();
         formData.append('file', file);

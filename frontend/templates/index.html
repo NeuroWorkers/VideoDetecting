@@ -7,14 +7,22 @@
     <title>Video Upload</title>
 </head>
 <body>
-    <div class="container">
+    <div class="info">
+        <h1>Нейронная сеть для распознавания типов действий человека на видеопоследовательности в охраняемой зоне.</h1>
+        <p>Данная модель разрабатывалась на основе классических алгоритмов машинного обучения и машинного зрения. Стек: TensorFlow, Scikit-Learn, OpenCV, MediaPipe.
+            Помимо этого был вручную сформирован датасет из 500 видеозаписей на охраняемых объектах для обучения с такими типами действий:
+            бег, ходьба, выпады, прыжки, наклоны, постучать и зайти, постучать и заглянуть, пройти через турникет, перелезть через ограждение, перешагнуть через ограждение,
+            бросить предмет. Точность распознавания составила примерно 89-90% для одной из моделей. Точность остальных моделей использованных для обучения - 85-89%</p>
+    </div>
+    <br>
+    <div class="container" id="videoContainer">
         <h1>Загрузите ваше видео</h1>
         <div class="file-upload">
             <input type="file" id="fileInput" name="file" accept="video/*" style="display: none;">
             <button type="button" id="uploadButton">+</button>
         </div>
         <video id="videoPlayer" width="300" controls style="display:none;"></video>
-        <input type="text" id="responseText" placeholder="После загрузки видео начнется обработка" readonly>
+        <input type="text" id="responseText" placeholder="После загрузки видео начнется обработка. Ответ появится тут!" readonly>
     </div>
 
     <script src="{{ url_for('static', filename='scripts.js') }}" defer></script>

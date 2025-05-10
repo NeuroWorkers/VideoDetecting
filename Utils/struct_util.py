@@ -27,3 +27,13 @@ def rename_file_without_extension(current_path, new_name):
         print(f"Ошибка при переименовании файла: {e}")
 
     return new_path
+
+
+def create_dir_with_parents(path):
+    """
+    Создает директорию по указанному пути, включая все предварительные каталоги, если их нет.
+
+    Args:
+        path (str): путь к создаваемой директории.
+    """
+    os.makedirs(path, exist_ok=True)
